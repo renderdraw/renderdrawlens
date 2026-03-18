@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(public/icons/lens-16.svg:*)",
+      "Bash(git -C /Users/erikpilgrim/Documents/Dev/renderdrawlens status)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)"
+    ]
+  }
+}

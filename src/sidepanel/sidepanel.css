@@ -1,0 +1,761 @@
+/* ============================================================
+   Side Panel — Journeys Dark Theme
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-panel: #12121a;
+  --bg-card: #1a1a24;
+  --bg-card-hover: #22222e;
+  --border: #2a2a3a;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #606070;
+  --gold: #FFD700;
+  --gold-dim: rgba(255, 215, 0, 0.15);
+  --amber-500: #f59e0b;
+  --teal: #14B8A6;
+  --teal-dim: rgba(20, 184, 166, 0.15);
+  --red: #ef4444;
+  --green: #22c55e;
+  --purple: #8b5cf6;
+  --blue: #3b82f6;
+  --radius: 8px;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────── */
+
+.sp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.sp-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-header__logo {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--gold), var(--amber-500));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--bg-dark);
+}
+
+.sp-header__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.3px;
+}
+
+.sp-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sp-icon-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+}
+
+.sp-icon-btn:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ── Tabs / Mode Selector ───────────────────── */
+
+.sp-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.sp-tab {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.12s ease;
+}
+
+.sp-tab:hover {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sp-tab--active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.sp-tab--video.sp-tab--active {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.sp-tab--qa.sp-tab--active {
+  color: var(--amber-500);
+  border-bottom-color: var(--amber-500);
+}
+
+/* ── Session Info ───────────────────────────── */
+
+.sp-session {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.01);
+  flex-shrink: 0;
+}
+
+.sp-session__url {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-session__meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.sp-session__stat {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.sp-session__stat strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Annotation List ────────────────────────── */
+
+.sp-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.sp-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sp-list::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+.sp-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.sp-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.sp-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 32px;
+}
+
+.sp-empty__icon {
+  font-size: 32px;
+  opacity: 0.3;
+}
+
+.sp-empty__text {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.sp-empty__shortcut {
+  display: inline-block;
+  padding: 2px 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--gold);
+}
+
+/* ── Annotation Card ────────────────────────── */
+
+.sp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.sp-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.sp-card--selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.sp-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sp-card__number {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sp-card__number--blocking { background: rgba(239, 68, 68, 0.15); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.3); }
+.sp-card__number--important { background: rgba(245, 158, 11, 0.15); color: var(--amber-500); border: 1px solid rgba(245, 158, 11, 0.3); }
+.sp-card__number--suggestion { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(20, 184, 166, 0.3); }
+.sp-card__number--cosmetic { background: rgba(96, 96, 112, 0.15); color: var(--text-muted); border: 1px solid rgba(96, 96, 112, 0.3); }
+
+.sp-card__target {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--teal);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-card__status {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.sp-card__status--pending { background: rgba(245, 158, 11, 0.15); color: var(--amber-500); }
+.sp-card__status--acknowledged { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+.sp-card__status--in_progress { background: rgba(139, 92, 246, 0.15); color: var(--purple); }
+.sp-card__status--resolved { background: rgba(34, 197, 94, 0.15); color: var(--green); }
+.sp-card__status--dismissed { background: rgba(96, 96, 112, 0.15); color: var(--text-muted); }
+
+.sp-card__comment {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.sp-card__badges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.sp-badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.sp-badge--intent {
+  background: var(--gold-dim);
+  color: var(--gold);
+}
+
+.sp-badge--tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ── Video Timeline ─────────────────────────── */
+
+.sp-timeline {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.sp-timeline-step {
+  display: flex;
+  gap: 12px;
+  padding: 10px 8px;
+  border-left: 2px solid var(--border);
+  margin-left: 12px;
+  position: relative;
+  cursor: grab;
+  transition: all 0.12s ease;
+}
+
+.sp-timeline-step:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.sp-timeline-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: -12px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  border: 2px solid var(--teal);
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-timeline-step__content {
+  flex: 1;
+}
+
+.sp-timeline-step__action {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sp-timeline-step__target {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 2px;
+}
+
+.sp-timeline-step__narration {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.sp-timeline-step__duration {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Export Bar ──────────────────────────────── */
+
+.sp-export {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sp-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sp-btn--primary {
+  background: linear-gradient(135deg, var(--gold), var(--amber-500));
+  color: var(--bg-dark);
+}
+
+.sp-btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.25);
+}
+
+.sp-btn--secondary {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.sp-btn--secondary:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.sp-btn--teal {
+  background: linear-gradient(135deg, #0d9488, var(--teal));
+  color: var(--bg-dark);
+}
+
+.sp-btn--teal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+}
+
+/* ── MCP Status ─────────────────────────────── */
+
+.sp-mcp-status {
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sp-mcp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.sp-mcp-dot--connected {
+  background: var(--green);
+}
+
+.sp-mcp-dot--error {
+  background: var(--red);
+}
+
+/* ── Settings Panel ─────────────────────────── */
+
+.sp-settings {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sp-settings__group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sp-settings__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.sp-settings__input {
+  padding: 6px 10px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+}
+
+.sp-settings__input:focus {
+  border-color: rgba(245, 158, 11, 0.7);
+}
+
+/* ── Project Bar ───────────────────────────── */
+
+.sp-project-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 215, 0, 0.02);
+  flex-shrink: 0;
+}
+
+.sp-project-bar__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.sp-project-select {
+  flex: 1;
+  padding: 4px 8px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-size: 11px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23606070'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 22px;
+}
+
+.sp-project-select:focus {
+  border-color: rgba(245, 158, 11, 0.7);
+}
+
+.sp-project-select option {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.sp-project-bar__add,
+.sp-project-bar__remove {
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+}
+
+.sp-project-bar__remove {
+  color: var(--text-muted);
+}
+
+.sp-project-bar__remove:hover {
+  color: var(--red);
+}
+
+/* ── Dialog ────────────────────────────────── */
+
+.sp-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.sp-dialog {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.sp-dialog__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.sp-dialog__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sp-dialog__actions .sp-btn {
+  flex: 1;
+}
+
+/* ── Enhanced Export Bar ───────────────────── */
+
+.sp-export {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.sp-export__secondary {
+  display: flex;
+  gap: 4px;
+}
+
+.sp-btn--copy-all {
+  width: 100%;
+  flex: none;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.sp-btn--sm {
+  padding: 5px 8px;
+  font-size: 10px;
+  letter-spacing: 0.2px;
+}
+
+.sp-btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sp-btn--disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Settings: Projects ────────────────────── */
+
+.sp-settings__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.sp-settings__section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.sp-settings__hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.sp-settings__project-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.sp-settings__project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.sp-settings__project-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sp-settings__project-slug {
+  font-size: 10px;
+  color: var(--teal);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sp-settings__project-repo {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-icon-btn--danger:hover {
+  color: var(--red);
+  background: rgba(239, 68, 68, 0.1);
+}

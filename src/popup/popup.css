@@ -1,0 +1,267 @@
+/* ============================================================
+   Popup — Journeys Dark Theme (Compact)
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #0a0a0f;
+  color: #ffffff;
+  width: 280px;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────── */
+
+.pp-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px 10px;
+}
+
+.pp-logo {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #FFD700, #f59e0b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a0a0f;
+  flex-shrink: 0;
+}
+
+.pp-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-brand__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+.pp-brand__tagline {
+  font-size: 10px;
+  color: #606070;
+  letter-spacing: 0.5px;
+}
+
+/* ── Action Row ─────────────────────────────── */
+
+.pp-action-row {
+  display: flex;
+  gap: 6px;
+  margin: 4px 16px 12px;
+}
+
+.pp-toggle {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: all 0.15s ease;
+}
+
+.pp-toggle--activate {
+  background: linear-gradient(135deg, #FFD700, #f59e0b);
+  color: #0a0a0f;
+}
+
+.pp-toggle--activate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+}
+
+.pp-toggle--deactivate {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.pp-toggle--deactivate:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.pp-panel-btn {
+  width: 40px;
+  flex-shrink: 0;
+  border: 1px solid #2a2a3a;
+  border-radius: 8px;
+  background: #1a1a24;
+  color: #14B8A6;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+}
+
+.pp-panel-btn:hover {
+  background: #22222e;
+  border-color: #14B8A6;
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.15);
+}
+
+/* ── Mode Selector ──────────────────────────── */
+
+.pp-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 16px 12px;
+}
+
+.pp-mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid #2a2a3a;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s ease;
+  color: #a0a0b0;
+  text-align: left;
+  width: 100%;
+}
+
+.pp-mode:hover {
+  background: #1a1a24;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pp-mode--active {
+  border-color: #FFD700;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.pp-mode--active.pp-mode--feedback { border-color: #FFD700; }
+.pp-mode--active.pp-mode--video { border-color: #14B8A6; }
+.pp-mode--active.pp-mode--qa { border-color: #f59e0b; }
+
+.pp-mode__icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.pp-mode--feedback .pp-mode__icon { background: rgba(255, 215, 0, 0.1); color: #FFD700; }
+.pp-mode--video .pp-mode__icon { background: rgba(20, 184, 166, 0.1); color: #14B8A6; }
+.pp-mode--qa .pp-mode__icon { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.pp-mode__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-mode__name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pp-mode__desc {
+  font-size: 10px;
+  color: #606070;
+}
+
+/* ── Shortcuts ──────────────────────────────── */
+
+.pp-shortcuts {
+  padding: 10px 16px;
+  border-top: 1px solid #2a2a3a;
+}
+
+.pp-shortcuts__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.pp-shortcuts__title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #606070;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.pp-shortcuts__hint {
+  font-size: 9px;
+  color: #3a3a4a;
+  font-style: italic;
+}
+
+.pp-shortcut-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.pp-shortcut-row__label {
+  font-size: 11px;
+  color: #a0a0b0;
+}
+
+.pp-shortcut-row__key {
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+/* ── Status Bar ─────────────────────────────── */
+
+.pp-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-top: 1px solid #2a2a3a;
+  font-size: 10px;
+  color: #606070;
+}
+
+.pp-status__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.pp-status__dot--on { background: #22c55e; }
+.pp-status__dot--off { background: #606070; }

@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "RenderDraw Lens",
+  "version": "1.0.0",
+  "description": "Universal Visual Feedback & Video Direction for the RenderDraw Stack",
+  "permissions": [
+    "activeTab",
+    "sidePanel",
+    "storage",
+    "tabCapture",
+    "scripting",
+    "tabs",
+    "alarms"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": [],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "icons/lens-16.png",
+      "32": "icons/lens-32.png",
+      "48": "icons/lens-48.png",
+      "128": "icons/lens-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/lens-16.png",
+    "32": "icons/lens-32.png",
+    "48": "icons/lens-48.png",
+    "128": "icons/lens-128.png"
+  },
+  "commands": {
+    "toggle-lens": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Toggle RenderDraw Lens"
+    }
+  }
+}

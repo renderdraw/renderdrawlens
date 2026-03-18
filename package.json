@@ -1,0 +1,21 @@
+{
+  "name": "renderdraw-lens",
+  "version": "1.0.0",
+  "description": "Universal Visual Feedback & Video Direction for the RenderDraw Stack",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "mcp": "npx tsx src/mcp-bridge/server.ts"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "typescript": "^5.7.0",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "ulid": "^2.3.0"
+  }
+}
